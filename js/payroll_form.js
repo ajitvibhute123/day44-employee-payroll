@@ -77,3 +77,58 @@ const getSelectedValues = (propertyValue) => {
     })
     return selItems;
 }
+//UC5
+/*
+1:query selector is a newever feature
+2:The querysecector method can be used when selecting by element name,
+nesting, or class name.
+3: querySelector lets u find elements with rules that can,t be 
+expressed with get elementById
+*/
+
+const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
+
+/*
+1:getElementById is better supported than querySelector in older versions
+of the browsers.
+2: The thing with getElementById is that it only allows to select an 
+element by its id.
+*/
+
+const getInputElementValue = function (id) {
+    let value = document.getElementById(id).value;
+
+}
+
+const resetForm= () => {
+    setValue('#name','');
+    unsetSelectedValues('[name=profile]');
+    unsetSelectedValues('[name=gender]');
+    unsetSelectedValues('[name=department]');
+    setValue('#salary','');
+    setValue('#note','');
+    setValue('#day','1');
+    setValue('#month','March');
+    setValue('#year',2019);
+  }
+  
+  const unsetSelectedValues = (propertValue) => {
+    let allItems = document.querySelectorAll(propertValue);
+    allItems.forEach(item => {
+        item.checked = false;
+    });
+  }
+  
+  const setTextValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.textContent = value;
+  }
+  
+  const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+    
+  }
